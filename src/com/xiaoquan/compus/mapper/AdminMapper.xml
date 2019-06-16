@@ -34,8 +34,6 @@
       dy.issueTime DESC
     LIMIT #{1}, #{2}
   </select>
-
-<select id=""></select>
   <insert id="addNotice" parameterType="notice">
     <selectKey keyProperty="id" order="AFTER" resultType="int">
       SELECT LAST_INSERT_ID()
