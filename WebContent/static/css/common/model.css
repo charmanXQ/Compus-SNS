@@ -1,0 +1,22 @@
+
+.model {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 999;
+  display: none;
+}
+.model .modelExit {
+  display: block;
+  float: right;
+  width: 32px;
+  height: 32px;
+  background-image: url("../../images/bgi_images/model_exit_logo.png");
+  z-index: 1009;
+}
+.model .modelExit:hover {
+  background-image: url("../../images/bgi_images/model_exit2_logo.png");
+}
+

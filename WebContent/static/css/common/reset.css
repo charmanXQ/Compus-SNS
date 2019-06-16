@@ -1,0 +1,38 @@
+@charset "utf8";
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea,
+p, blockquote, th, td, hr, button, figcaption, figure, footer, footer, header, hgroup, menu, nav, section {
+    margin: 0;
+    padding: 0;
+}
+article, aside, details, figcaption, figure, footer, header, header, hgroup, menu, nav, section {
+    display: block;
+}
+html, body {
+    height: 100%;
+}
+body {
+    font: 12px/1.55em arial, heibetica, sans-serif;
+    text-align: center;
+}
+ol, ul {
+    list-style: none;
+}
+html body a {
+    text-decoration: none;
+}
+
+html body a:hover {
+    text-decoration: none;
+}
+
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    *zoom: 1;
+}

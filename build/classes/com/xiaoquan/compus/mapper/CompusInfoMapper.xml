@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace一般配置的时XXMapper.xml的路径 -->
+<mapper namespace="com.xiaoquan.compus.mapper.CompusInfoMapper">
+  <resultMap type="notice" id="noticeMap">
+    <id property="id" column="id"/>
+    <result property="issueTime" column="issueTime"/>
+    <result property="text" column="text"/>
+    <result property="logoURL" column="logoURL"/>
+    <result property="issueName" column="issueName"/>
+    <result property="issueType" column="typeName"/>
+  </resultMap>
+  <select id="getNoticeListById" parameterType="int" resultMap="noticeMap">
+    SELECT
+      notice.id,TEXT,issueTime,logoURL, issueName, typeName
+    FROM
+      notice,notice_type
+    WHERE
+      notice.issueType = notice_type.id
+    AND
+      notice_type.id = #{id}
+    ORDER BY
+      notice.issueTime DESC
+  </select>
+  
+  <select id="getNoticeTotalCount" resultType="int">
+    SELECT COUNT(*) FROM notice 
+  </select>
+  
+  <select id="getNoticeList" resultMap="noticeMap">
+    SELECT
+      notice.id,TEXT,issueTime,logoURL, issueName, typeName
+    FROM
+      notice,notice_type
+    WHERE
+      notice.issueType = notice_type.id
+    AND
+      notice.text LIKE concat(concat("%",#{0}),"%")
+    ORDER BY
+      notice.issueTime DESC
+    LIMIT #{1}, #{2}
+  </select>
+</mapper>

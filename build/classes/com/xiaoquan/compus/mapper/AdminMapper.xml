@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace一般配置的时XXMapper.xml的路径 -->
+<mapper namespace="com.xiaoquan.compus.mapper.AdminMapper">
+  <select id="getKeyDynamicCount" resultType="int">
+    SELECT
+      count(*)
+    FROM
+      dynamic
+    WHERE 
+      dynamic.txtWords LIKE concat(concat("%",#{dynamicKey}),"%")
+  </select>
+
+  <resultMap type="dynamic" id="dynamicList">
+    <id property="id" column="id"></id>
+    <result property="txtWords" column="txtWords"/>
+    <result property="issueTime" column="issueTime"/>
+    <association property="issueUser" column="userId" javaType="user">
+      <id property="id" column="userId"/>
+      <result property="nickName" column="nickName"/>
+      <result property="logoUrl" column="logoUrl"/>
+    </association>
+  </resultMap>
+  <select id="findDynamic" resultMap="dynamicList">
+    SELECT
+      ui.id userId, ui.logoUrl, ui.nickName, dy.* 
+    FROM 
+      DYNAMIC dy LEFT JOIN user_info ui 
+    ON 
+      dy.issueUserId = ui.id 
+    WHERE 
+      dy.txtWords LIKE concat(concat("%",#{0}),"%")
+    ORDER BY
+      dy.issueTime DESC
+    LIMIT #{1}, #{2}
+  </select>
+
+<select id=""></select>
+  <insert id="addNotice" parameterType="notice">
+    <selectKey keyProperty="id" order="AFTER" resultType="int">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    INSERT INTO notice(text, issueTime, issueName, issueType)
+      VALUES(#{text}, NOW(), #{issueName}, #{issueType})
+  </insert>
+  
+  <delete id="deleteNoticeById" parameterType="int">
+    DELETE FROM notice WHERE id = #{noticeId}
+  </delete>
+  
+  <delete id="deleteFuncById" parameterType="int">
+    DELETE FROM user_func WHERE userId = #{userId}
+  </delete>
+  
+  <insert id="addFuncById">
+    INSERT INTO user_func VALUES(#{0}, #{1})
+  </insert>
+</mapper>

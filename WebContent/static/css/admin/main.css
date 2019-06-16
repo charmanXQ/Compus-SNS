@@ -1,0 +1,96 @@
+@charset "utf8";
+
+.content-wrapper {
+  background-color: #fff;
+}
+
+.content-wrapper .table-header {
+  background-color: gray;
+}
+
+.table-body, .table-header {
+  height: 50px;
+  text-align: center;
+  font-size: 15px;
+}
+.content-wrapper .num {
+  width: 50px;
+}
+
+.content-wrapper .nickName {
+  width: 200px;
+}
+
+.content-wrapper .sex {
+  width: 45px;
+}
+
+.content-wrapper .email {
+  width: 180px;
+}
+
+.content-wrapper .college {
+  width: 145px;
+}
+
+.content-wrapper .count {
+  width: 72px;
+}
+
+.content-wrapper .action {
+  width: 100px;
+}
+
+.message {
+  display: none;
+  position: absolute;
+  top: 75px;
+  left: 700px;
+  width: 150px;
+  height: 40px;
+  background-color: #3CB371;
+  border-radius: 5px;
+  line-height: 40px;
+  color: #FFFFFF;
+  font-size: 15px;
+}
+
+.func-action {
+  display: none;
+  width: 200px; 
+  min-height: 270px;
+  background-color: #00B7EE;
+  position: absolute;
+  top: 200px;
+  left: 1280px;
+  font-size: 20px;
+  border-radius: 5px;
+  padding-top: 10px;
+  color: #FFFFFF;
+}
+
+.func-action input {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+
+.func-action .item-name {
+  vertical-align: super;
+}
+
+.func-action .title {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.func-action a {
+  display: inline-block;
+  width: 70px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #FFFFFF;
+  border-radius: 3px;
+  font-size: 15px;
+  color: #00B7EE;
+}

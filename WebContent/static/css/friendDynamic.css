@@ -1,0 +1,15 @@
+@charset "utf8";
+
+body {
+  background-color: #E1FFFF;
+  background-image: url("../images/bgi_images/bgi_main.png");
+  background-position: -20px 0;
+  background-repeat: no-repeat;
+}
+
+.main {
+  width: 670px;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding-right: 330px;
+}

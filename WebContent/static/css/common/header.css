@@ -1,0 +1,131 @@
+@charset "utf8";
+
+/* 头部及其包裹 */ 
+.headerWarpper {
+  width: 100%;
+  height: 55px;
+  background-color: rgba(0,0,0,0.9);
+  position: fixed;
+  z-index: 999;
+  top: 0px;
+}
+.header {
+  width: 1000px;
+  margin: 0 auto;
+  height: 55px;
+  line-height: 55px;
+}
+/* 头部左边 */ 
+.logoTitle {
+  width: 420px;
+  height: 55px;
+  float: left;
+}
+.logoTitle img {
+  display: inline-block;
+  float: left;
+  margin-top: 3px;
+}
+.logoTitle span {
+  display: inline-block;
+  height: 55px;
+  float: left;
+  font-size: 28px;
+  color: #FFFFFF;
+  margin-left: 10px;
+}
+.logoTitle ul {
+  float: left;
+  margin-left: 10px;
+  font-size: 18px;
+  font-weight: 200;
+}
+.logoTitle .title {
+  width: 80px;
+  height: 55px;
+  float: left;
+  padding-left: 30px;
+}
+.logoTitle ul li:nth-child(1) {
+  background: url("../../images/bgi_images/self_logo.png") 0 11px no-repeat;
+}
+.logoTitle ul li:nth-child(2) {
+  background: url("../../images/bgi_images/market_logo.png") 0 11px no-repeat;
+  margin-left: 8px;
+}
+.logoTitle .title a {
+  color: #FFFFFF;
+}
+.logoTitle .active a {
+  color: #FFD700
+}
+.logoTitle .title a:hover {
+  color: #228B22;
+}
+/* 头部右边 */ 
+.selfInfo {
+  width: 550px;
+  height: 55px;
+  float: right;
+  position: relative;
+}
+.selfInfo input {
+  width: 280px;
+  height: 35px;
+  border: 1px solid #778899;
+  background-color: #D3D3D3;
+  border-radius: 10px;
+  padding-left: 15px;
+  font-size: 18px;
+  margin-top: 10px;
+  position: absolute;
+  left: 65px;
+  outline: none;
+}
+
+.selfInfo input[type=file] {
+  display: none;
+}
+
+.selfInfo .searchLogo {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  left: 320px;
+  top: 12px;
+}
+.selfInfo .userLogo {
+  display: inline-block;
+  position: absolute;
+  left: 400px;
+  top: 4px;
+  border: 1px solid #FFFFFF;
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  background-color: #FFFFFF;
+}
+.selfInfo a:last-child {
+  float: right;
+  width: 80px;
+  height: 55px; 
+  background: url("../../images/bgi_images/exit_logo.png") 8px 11px no-repeat;
+  color: #FFFFFF;
+  font-size: 20px;
+  text-align: right;
+}
+.selfInfo a:last-child:hover {
+  color: #FFD700;
+  background-image: url("../../images/bgi_images/exit2_logo.png");
+}
+
+
+.admin-welcome {
+  color: #FFFFFF;
+  font-size: 18px;
+}
+
+.admin-welcome font {
+  color: #FFD700;
+}

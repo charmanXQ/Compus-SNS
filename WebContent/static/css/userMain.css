@@ -1,0 +1,197 @@
+@charset "utf8";
+
+body {
+  background-color: #E1FFFF;
+  background-image: url("../images/bgi_images/bgi_main.png");
+  background-position: -20px 0;
+  background-repeat: no-repeat;
+}
+/* 主干区域 */ 
+.main {
+  width: 1000px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.edit_user_message {
+  display: none;
+  background-color: #FFFFFF;
+  position: absolute;
+  width: 300px;
+  height: 192px;
+  border-radius: 5px;
+}
+.edit_user_message label {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+}
+.edit_user_message label:nth-child(1) {
+  background: url("../images/bgi_images/nikename_logo.png") 4px 10px no-repeat;
+}
+.edit_user_message label:nth-child(4) {
+  background: url("../images/bgi_images/email_logo.png") 4px 10px no-repeat;
+}
+.edit_user_message input[type=text] {
+  width: 190px;
+  height: 30px;
+  vertical-align: text-bottom;
+  font-size: 17px;
+  padding-left: 10px;
+  background: none;
+  border: none;
+  outline: none;
+  border: 1px solid #000000;
+  border-radius: 5px;
+}
+.edit_user_message input[type=submit],
+.edit_user_message input[type=button] {
+  background: none;
+  background-color: #1296DB;
+  margin-top: 10px;
+  width: 60px;
+  height: 31px;
+  margin-left: 30px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  color: #FFFFFF;
+}
+.edit_user_message input[type=submit]:hover,
+.edit_user_message input[type=button]:hover {
+  background-color: #1276DB;
+}
+.edit_message {
+  display: inline-block;
+  width: 285px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 5px;
+  background-color: #F5F5F5;
+  font-size: 20px;
+  font-weight: 600;
+  padding-left: 15px;
+  text-align: left;
+}
+/* 左边用户信息 */ 
+.left {
+  width:300px;
+  float: left;
+}
+.left .self ul {
+  width: 300px;
+  background-color: #FFFFFF;
+  border-radius: 5px;
+}
+.left .self li:first-child, .left .friend li:first-child {
+  width:285px;
+  heigth: 40px;
+  line-height: 40px;
+  background-color: #F5F5F5;
+  text-align: left;
+  font-size: 20px;
+  font-weight: 600;
+  color: #000000;
+  padding-left: 15px;
+  border-radius: 5px 5px 0 0;
+}
+.left .self li:first-child a {
+  float: right;
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+  margin-top: 4px;
+  background-image: url("../images/bgi_images/edit_logo.png");
+}
+.left .self li:first-child a:hover {
+  background-image: url("../images/bgi_images/edit2_logo.png");
+}
+.left .self .selfLi {
+  width: 240px;
+  height: 50px;
+  line-height: 50px;
+  margin-left: 10px;
+  border-bottom: 1px solid #DCDCDC;
+  font-weight: 500px;
+  font-size: 15px;
+  text-align: left;
+  padding-left: 40px;
+}
+.left .self li:nth-child(2) {
+  background: url("../images/bgi_images/nikename_logo.png") 0 6px no-repeat;
+}
+.left .self li:nth-child(3) {
+  background: url("../images/bgi_images/college_logo.png") 0 6px no-repeat;
+}
+.left .self li:last-child {
+  border-bottom: none;
+  background: url("../images/bgi_images/email_logo.png") 0 6px no-repeat;
+}
+
+.left .friend {
+  margin-top: 30px;
+}
+.left .friend ul {
+  width: 300px;
+  background-color: #FFFFFF;
+  border-radius: 5px;
+}
+.left .friend .lineInfo {
+  height: 40px;
+  line-height: 40px;
+  font-size: 15px;
+  color: #00BFFF;
+}
+.left .friend .friLi {
+  width: 280px;
+  height: 80px;
+  line-height 80px;
+  margin-left: 10px;
+  border-bottom: 1px solid #DCDCDC;
+  position: relative;
+}
+.left .friend li:last-child {
+  border-bottom: none;
+}
+.left .friend .more_link {
+  padding: 10px 10px;
+  text-align: right;
+}
+.left .friend li:last-child a {
+  font-size: 18px;
+  text-decoration: underline;
+}
+.left .friend li:last-child a:hover {
+  color: #00BFFF;
+}
+.left .friend .friLi img {
+  float: left;  
+  margin-top: 10px;
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+  border: 1px solid #000000;
+}
+.left .friend .friLi span {
+  position: absolute;
+  font-size: 18px;
+  left: 70px;
+}
+.left .friend .friLi .f_nickName {
+  font-weight: 400;
+  top: 18px;
+}
+.left .friend .friLi .f_college {
+  font-weight: 700;
+  top: 48px;
+  font-size: 15px;
+}
+.left .friend .friLi a {
+  float: right;
+  width: 32px;
+  height: 32px;
+  margin-top: 24px;
+  background-image: url("../images/bgi_images/cancel_focus.png");
+}
+.left .friend .friLi a:hover {
+  background-image: url("../images/bgi_images/cancel_focus2.png");
+}

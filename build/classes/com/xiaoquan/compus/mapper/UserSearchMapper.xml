@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace一般配置的时XXMapper.xml的路径 -->
+<mapper namespace="com.xiaoquan.compus.mapper.UserSearchMapper">
+  <select id="getFriendCountById" parameterType="int" resultType="int">
+    SELECT count(*) 
+    FROM
+      user_friends uf
+    WHERE
+      uf.userId = #{id}
+  </select>
+  <!-- 查询好友列表 -->
+  <resultMap type="detailUser" id="friendList">
+      <id property="id" column="id"/>
+      <result property="nickName" column="nickName"/>
+      <result property="sex" column="sex"/>
+      <result property="email" column="email"/>
+      <result property="college" column="college"/>
+      <result property="logoUrl" column="logoUrl"/>
+      <result property="dynamicCount" column="dyCount"/>
+  </resultMap>
+  <select id="findMoreFriends" resultMap="friendList">
+    SELECT  ui.*, 
+      CASE
+        WHEN tab.id IS NULL THEN 0
+        ELSE COUNT(friendId)
+      END  
+      dyCount
+    FROM 
+      (
+        SELECT r_t.*, dy.*
+        FROM
+          (
+            SELECT friendId
+            FROM
+              user_friends uf
+            WHERE
+              uf.userId = #{0} AND uf.userId != uf.friendId
+          ) r_t LEFT JOIN DYNAMIC dy  
+        ON
+          dy.issueUserId = r_t.friendId
+      ) tab LEFT JOIN user_info ui 
+    ON tab.friendId = ui.id
+    GROUP BY friendId
+    LIMIT #{1}, #{2}
+  </select>
+  
+  <select id="getUserCountByKey" parameterType="String" resultType="int">
+    SELECT count(*) 
+    FROM user_info ui
+    WHERE
+      ui.nickName LIKE concat(concat("%",#{searchKey}),"%") 
+      OR
+      ui.email LIKE concat(concat("%",#{searchKey}),"%")
+  </select>
+  <select id="findUserByKey" resultMap="friendList">
+    SELECT dy_ui.*, 
+      CASE
+        WHEN dy_ui.dyId IS NULL THEN 0
+        ELSE COUNT(id)
+      END  
+      dyCount
+    FROM 
+      (
+        SELECT ui.*, dy.id dyId 
+        FROM
+          user_info ui LEFT JOIN DYNAMIC dy
+        ON
+          ui.id = dy.issueUserId
+      ) dy_ui 
+    WHERE
+      dy_ui.nickName LIKE concat(concat("%",#{0}),"%") 
+      OR
+      dy_ui.email LIKE concat(concat("%",#{0}),"%")
+    GROUP BY id
+    LIMIT #{1}, #{2}
+  </select>
+  
+  <delete id="deleteFriendById">
+    DELETE 
+    FROM
+      user_friends
+    WHERE
+      userId = #{0} AND friendId = #{1}
+  </delete>
+  
+  <select id="findFriendIdByUserId" parameterType="int" resultType="int">
+    SELECT
+      friendId
+    FROM
+      user_friends
+    WHERE
+      userId = #{userId}
+  </select>
+  
+  <insert id="insertFriendId">
+    INSERT INTO user_friends VALUES(#{0}, #{1})
+  </insert>
+</mapper>

@@ -1,0 +1,118 @@
+@charset "utf8";
+
+/* 横幅区域 */ 
+.main .slogan {
+  width: 800px;
+  height: 40px;
+  line-height: 40px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #808080;
+}
+.slogan span {
+  display: inline-block;
+  float: left;
+  margin-left: 20px;
+  font-size: 25px;
+}
+.slogan a {
+  height: 40px;
+  width: 80px;
+  float: right;
+  font-size: 15px;
+  color: #000000;
+  padding-left: 32px;
+  margin-bottom: 10px;
+}
+.slogan a:nth-child(2) {
+  background: url("../../images/bgi_images/manage_logo.png") 10px 6px no-repeat;
+  background-color: #FFFFFF;
+  border-radius: 3px;
+  border: 1px solid #000000;
+}
+.slogan a:nth-child(2):hover {
+  color: #1296DB;
+  background-image: url("../../images/bgi_images/manage2_logo.png");
+  border: 1px solid #1296DB;
+}
+.slogan a:nth-child(3), .slogan a:nth-child(4) {
+  display: none;
+  padding-left: 0;
+  margin-right: 20px;
+  border-radius: 3px;
+  border: 1px solid #000000;
+}
+.slogan a:nth-child(3):hover, .slogan a:nth-child(4):hover {
+  color: #1296DB;
+}
+
+/* 照片区域 */ 
+.main .lineInfo {
+  height: 40px;
+  line-height: 40px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #FFD700;
+}
+.main .photos {
+  width: 800px;
+  padding: 15px 0;
+  text-align: left;
+}
+
+.main .photos .picture_wrapper {
+  display: inline-block;
+  width: 172px;
+  height: 172px;
+  border-radius: 3px;
+  margin: 11px 11px;
+  position: relative;
+  box-shadow: 6px 4px 20px 2px rgba(0,0,0,0.9);
+}
+.main .picture_wrapper input {
+  position: absolute;
+  display: none;
+  width: 20px;
+  height: 20px;
+}
+.main .photos img {
+  width: 172px;
+  height: 172px;
+}
+.main .photos span {
+  position: absolute;
+  top: 142px;
+  left: 0;
+  width: 172px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 15px;
+  color: #FFFFFF;
+  text-align: center;
+  background-color: rgba(0,0,0,0.4);
+  display: none;
+}
+
+.main .picture_wrapper:hover span {
+  display: block;
+}
+
+.main .picture_wrapper a {
+  display: none;
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  left: 142px;
+  top: 0;
+  background-image: url("../../images/bgi_images/delete_dynamic.png");
+}
+
+.main .picture_wrapper a:hover {
+  background-image: url("../../images/bgi_images/delete_dynamic2.png");
+}
+
+.main .picture_wrapper:hover a {
+  display: block;
+}
+
+
+

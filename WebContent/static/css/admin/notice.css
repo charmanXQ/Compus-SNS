@@ -1,0 +1,82 @@
+@charset "utf8";
+
+/* 主干区域 */ 
+
+.lineInfo {
+  height: 40px;
+  line-height: 40px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #0080ff;
+}
+
+.tab {
+  width: 670px;
+  min-height: 400px;
+}
+
+.item {
+  width: 670px;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+.info, .article {
+  width: 640px;
+  margin-left: 15px;
+  position: relative;
+}
+.info {
+  height: 60px;
+  margin-top: 20px;
+}
+.info .userLogo {
+  float: left;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+.info span {
+  position: absolute;
+  font-weight: 500;
+  left: 75px;
+}
+.info .info_nickName {
+  font-size: 20px;
+  top: 10px;
+}
+.info .info_time {
+  font-size: 15px;
+  color: #A9A9A9;
+  top: 35px;
+}
+
+.article {
+  text-align: left;
+  font-size: 18px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 20px;
+  word-wrap: break-word;
+  word-break: break-all;
+  overflow: hidden;
+}
+
+.delete_notice {
+  display: none;
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  left: 610px;
+  background-image: url("../../images/bgi_images/delete_dynamic.png");
+}
+
+.info:hover .delete_notice {
+  display: block;
+}
+
+.info .delete_notice:hover {
+  background-image: url("../../images/bgi_images/delete_dynamic2.png");
+}

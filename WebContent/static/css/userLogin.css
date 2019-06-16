@@ -1,0 +1,268 @@
+@charset "utf8";
+
+body {
+  overflow: hidden;
+}
+.bgiLogin {
+  width: 100%;
+  height: 100%;
+}
+.appTitle {
+  position: absolute;
+  left: 320px;
+  top: 120px;
+  width: 290px;
+  height: 120px;
+  font-family: Microsoft YaHei;
+}
+.appTitle .logo{
+  width: 300px;
+  height: 80px;
+  line-height: 80px;
+  background: url(../images/bgi_images/app_logo.png) no-repeat;
+  padding-left: 40px;
+  font-size: 50px;
+  color: #F8F8FF;
+}
+.appTitle .title {
+  width: 290px;
+  height: 4px;
+  line-height: 40px;
+  font-size: 20px;
+  color: #F0FFFF;
+}
+.appTitle .title span:nth-child(1) {
+  float: left;
+}
+.appTitle .title span:nth-child(2) {
+  float: right;
+}
+/* 登录表单 */
+.loginForm {
+  position: absolute;
+  width: 400px;
+  min-height: 305px;
+  border-radius: 3px;
+  left: 800px;
+  top: 150px;
+  background-color: #FFFFFF;
+  font-size: 30px;
+}
+.loginForm span:nth-child(1), .registerForm span:first-child {
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  margin-bottom: 10px;
+  margin-top: 15px;
+}
+.loginForm .line {
+  width: 340px;
+  height: 50px;
+  margin-bottom: 15px;
+  margin-left: 30px;
+  line-height: 50px;
+  position: relative;
+}
+
+.loginForm .line label {
+  display: inline-block;
+  float: left;
+}
+.loginForm .line input {
+  display: inline-block;
+  background: none;
+  border: none;
+  outline: none;
+  float: right;
+  height: 40px;
+  width: 235px;
+  border-bottom: 1px solid #696969;
+  padding-left: 15px;
+  font-size: 20px;
+  margin-top: 5px;
+}
+.loginForm .line input:hover {
+  border-bottom: 2px solid rgba(72,209,204,0.3);
+}
+.loginForm .line a {
+  display: block;
+  position: absolute;
+  left: 305px;
+  top: 5px;
+}
+/* 登录表单前端验证消息提示*/
+.errorInfo {
+  display: none;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  background: url("../images/bgi_images/error_logo.png") 4px 4px no-repeat;
+  text-align: left;
+  padding-left: 40px;
+  margin-left: 30px;
+  color: #DC143C;
+}
+.loginForm div:last-child {
+  margin-top: 20px;
+  background-color: #32CD32;
+  border-radius: 5px;
+  color: #FFFFFF;
+}
+.loginForm div:last-child:hover {
+  background-color: #11AD32;
+}
+/* 登录表单后端验证消息提示*/
+.errorInfo2 {
+  display: inline-block;
+  width: 195px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 15px;
+  margin-left: 30px;
+  color: #DC143C;
+  float: left;
+  text-align: left;
+}
+.loginForm span:last-child {
+  font-size: 15px;
+}
+
+/* 注册表单模态框*/
+
+.registerForm {
+  position: absolute;
+  width: 600px;
+  height: 610px;
+  top: 55px;
+  left: 450px;
+  font-size: 25px;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  z-index: 1000;
+  display: none;
+}
+.registerForm .register {
+  position: relative;
+  width: 520px;
+  height: 50px;
+  line-height: 50px;
+  margin-left: 40px;
+  margin-top: 15px;
+}
+.registerForm .register input {
+  float: left;
+  background: none;
+  border: none;
+  outline: none;
+  border: 1px solid #000000;
+  height: 48px;
+  width: 300px;
+  font-size: 20px;
+  padding-left: 55px;
+  border-radius: 5px;
+}
+.registerForm .register input[type="radio"] {
+  float: none;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  position: absolute;
+  top: 10px;
+}
+.registerForm .register #boy {
+  left: 55px;
+}
+.registerForm .register .fboy {
+  position: absolute;
+  left: 100px;
+}
+.registerForm .register #girl {
+  left: 200px;
+}
+.registerForm .register .fgirl {
+  position: absolute;
+  left: 245px;
+}
+.registerForm .register input:hover {
+  border: 1px solid #1296DB;
+}
+.registerForm .register #r_nickName {
+  background: url("../images/bgi_images/nickname_rlogo.png") 8px 8px no-repeat;
+}
+.registerForm .register #r_nickName:hover {
+  background: url("../images/bgi_images/nickname2_rlogo.png") 8px 8px no-repeat;
+}
+.registerForm .register #r_email {
+  background: url("../images/bgi_images/email_rlogo.png") 8px 8px no-repeat;
+}
+.registerForm .register #r_email:hover {
+  background: url("../images/bgi_images/email2_rlogo.png") 8px 8px no-repeat;
+}
+.registerForm .register #r_college {
+  background: url("../images/bgi_images/college_rlogo.png") 8px 8px no-repeat;
+}
+.registerForm .register #r_college:hover {
+  background: url("../images/bgi_images/college2_rlogo.png") 8px 8px no-repeat;
+}
+.registerForm .register #r_pwd {
+  background: url("../images/bgi_images/pwd_rlogo.png") 8px 8px no-repeat;
+}
+.registerForm .register #r_pwd:hover {
+  background: url("../images/bgi_images/pwd2_rlogo.png") 8px 8px no-repeat;
+}
+.registerForm .register #r_pwd2 {
+  background: url("../images/bgi_images/rpwd_rlogo.png") 8px 8px no-repeat;
+}
+.registerForm .register #r_pwd2:hover {
+  background: url("../images/bgi_images/rpwd2_rlogo.png") 8px 8px no-repeat;
+}
+.registerForm .register #r_code {
+  background: url("../images/bgi_images/code_rlogo.png") 8px 8px no-repeat;
+}
+.registerForm .register #r_code:hover {
+  background: url("../images/bgi_images/code2_rlogo.png") 8px 8px no-repeat;
+}
+.registerForm .register label {
+  display: inline-block;
+  float: right;
+  width: 150px;
+  height: 48px;
+  line-height: 48px;
+  border: 1px solid #000000;
+  font-size: 15px;
+  color: #1296DB;
+  text-align: center;
+}
+.registerForm div:last-child {
+  width: 520px;
+  background-color: #1296DB;
+  border-radius: 5px;
+  color: #FFFFFF;
+}
+.registerForm div:last-child:hover {
+  background-color: #1275CA;
+}
+.registerForm .code input {
+  float: left;
+  width: 150px;
+}
+.registerForm .code a {
+  width: 120px;
+  height: 48px;
+}
+.registerForm .code img {
+  width: 120px;
+  height: 48px;
+  font-size: 20px;
+  float: left;
+  margin-left: 30px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.registerForm .cancel {
+  display: block;
+  position: absolute;
+  left: 570px;
+  top: 0;
+}

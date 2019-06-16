@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace一般配置的时XXMapper.xml的路径 -->
+<mapper namespace="com.xiaoquan.compus.mapper.UserMainMapper">
+  <!-- 查询好友列表 -->
+  <resultMap type="user" id="friendList">
+      <result property="id" column="friendId"/>
+      <result property="nickName" column="nickName"/>
+      <result property="logoUrl" column="logoUrl"/>
+      <result property="college" column="college"/>
+  </resultMap>
+  <select id="findUserById" parameterType="int" resultMap="friendList">
+    SELECT
+      uf.friendId, nickName, logoUrl, college 
+    FROM
+      user_friends uf JOIN user_info ui ON uf.friendId = ui.id AND uf.friendId != uf.userId
+    WHERE 
+      uf.userId = #{id}
+  </select>
+
+  <select id="getDynamicCountById" parameterType="int" resultType="int">
+    SELECT
+      count(*)
+    FROM
+      dynamic dy
+    WHERE 
+      dy.issueUserId = #{id}
+  </select>
+  <!-- 查询我的动态 -->
+  <resultMap type="dynamic" id="dynamicList">
+    <id property="id" column="id"></id>
+    <result property="txtWords" column="txtWords"/>
+    <result property="issueTime" column="issueTime"/>
+    <association property="issueUser" column="userId" javaType="user">
+      <id property="id" column="userId"/>
+      <result property="nickName" column="nickName"/>
+      <result property="logoUrl" column="logoUrl"/>
+    </association>
+  </resultMap>
+  <select id="findDynamicById" parameterType="int" resultMap="dynamicList">
+    SELECT
+      ui.id userId, ui.logoUrl, ui.nickName, dy.* 
+    FROM 
+      DYNAMIC dy LEFT JOIN user_info ui 
+    ON 
+      dy.issueUserId = ui.id 
+    WHERE
+      ui.id = #{id}
+    ORDER BY
+      dy.issueTime DESC
+  </select>
+  
+  <!-- 查询父评论 -->
+  <resultMap type="comment" id="parCommentList">
+    <id property="id" column="id"></id>
+    <result property="txtComment" column="txtComment"/>
+    <result property="commentTime" column="commentTime"/>
+    <association property="commentUser" column="commentUserId" javaType="user">
+      <id property="id" column="commentUserId"/>
+      <result property="nickName" column="nickName"/>
+      <result property="logoUrl" column="logoUrl"/>
+    </association>
+  </resultMap>
+  <select id="findParCommentById" parameterType="int" resultMap="parCommentList">
+    SELECT table1.*, ui.nickName, ui.logoUrl
+    FROM 
+      (
+        SELECT * 
+        FROM 
+          par_comment
+        WHERE
+          par_comment.dynamicId = #{id}
+      ) table1, user_info ui 
+    WHERE
+      ui.id = table1.commentUserId
+    ORDER BY
+      table1.commentTime ASC
+  </select>
+  
+  <!-- 查询子评论 -->
+  <resultMap type="comment" id="subCommentList">
+    <id property="id" column="id"></id>
+    <result property="txtComment" column="txtComment"/>
+    <result property="commentTime" column="commentTime"/>
+    <result property="replyToUserName" column="replyToUserName"/>
+    <association property="commentUser" column="commentUserId" javaType="user">
+      <id property="id" column="commentUserId"/>
+      <result property="nickName" column="nickName"/>
+      <result property="logoUrl" column="logoUrl"/>
+    </association>
+  </resultMap>
+  <select id="findSubCommentById" parameterType="int" resultMap="subCommentList">
+    SELECT
+      table1.*, ui.nickName, ui.logoUrl 
+    FROM 
+      (
+        SELECT * 
+        FROM 
+          sub_comment
+        WHERE
+          sub_comment.parCommentId = #{id}
+      ) table1, user_info ui
+    WHERE
+      ui.id = table1.commentUserId
+    ORDER BY
+      table1.commentTime ASC
+  </select>
+  
+  <update id="updateUserInfo" parameterType="user">
+    UPDATE
+      user_info
+    SET
+      nickName = #{nickName},
+      college = #{college}
+    WHERE
+      id = #{id}
+  </update>
+  
+  <delete id="deleteDynamicById" parameterType="int">
+    DELETE FROM DYNAMIC WHERE id = #{dynamicId}
+  </delete>
+  
+  <select id="getOtherUserById" parameterType="int" resultType="user">
+    SELECT * FROM user_info WHERE id = #{friendId}
+  </select>
+</mapper>

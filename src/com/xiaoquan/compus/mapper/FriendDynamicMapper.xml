@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace一般配置的时XXMapper.xml的路径 -->
+<mapper namespace="com.xiaoquan.compus.mapper.FriendDynamicMapper">
+  <!-- 查询好友动态 -->
+  <resultMap type="dynamic" id="dynamicList">
+    <id property="id" column="id"></id>
+    <result property="txtWords" column="txtWords"/>
+    <result property="issueTime" column="issueTime"/>
+    <association property="issueUser" column="friendId" javaType="user">
+      <id property="id" column="friendId"/>
+      <result property="nickName" column="nickName"/>
+      <result property="logoUrl" column="logoUrl"/>
+    </association>
+  </resultMap>
+  <select id="findFriendDynamicById" parameterType="int" resultMap="dynamicList">
+    SELECT
+      ui.logoUrl, ui.nickName, dy.*
+    FROM 
+      (
+         SELECT friendId, dy.* 
+         FROM
+           user_friends uf JOIN DYNAMIC dy 
+         ON
+           uf.friendId = dy.issueUserId 
+         WHERE
+           uf.userId = #{id}
+      )
+      dy LEFT JOIN user_info ui 
+    ON 
+      dy.issueUserId = ui.id 
+    ORDER BY
+      dy.issueTime DESC
+  </select>
+</mapper>

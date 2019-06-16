@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace一般配置的时XXMapper.xml的路径 -->
+<mapper namespace="com.xiaoquan.compus.mapper.UserMapper">
+  <!-- 通过登录邮箱来查询该用户信息 -->
+  <resultMap type="user" id="user_map">
+    <id property="id" column="id"></id>
+    <result property="nickName" column="nickName"></result>
+    <result property="sex" column="sex"></result>
+    <result property="email" column="email"></result>
+    <result property="college" column="college"></result>
+    <result property="password" column="password"></result>
+    <result property="logoUrl" column="logoUrl"></result>
+    <collection property="funcs" ofType="function">
+        <id property="id" column="funcId"/>
+        <result property="funcName" column="funcName"/>
+        <result property="funcLink" column="funcLink"/>
+    </collection>
+  </resultMap>
+  <select id="findByEmail" parameterType="java.lang.String" resultMap="user_map">
+    SELECT
+      ui.*, fi.id AS funcId, fi.funcName, fi.funcLink
+    FROM 
+      func_info AS fi, user_func AS uf, user_info AS ui 
+    WHERE 
+      ui.email = #{email} AND fi.id = uf.funcId AND ui.id = uf.userId
+  </select>
+  
+  <!-- 检查邮箱或者昵称是否已经存在 -->
+  <sql id="queryId">
+    SELECT id FROM user_info WHERE
+  </sql>
+  <select id="findEmail" parameterType="java.lang.String" resultType="int">
+      <include refid="queryId"></include>
+      email = #{email}
+  </select>
+  <select id="findNickName" parameterType="java.lang.String" resultType="int">
+      <include refid="queryId"></include>
+      nickName = #{nickName}
+  </select>
+  
+  <!-- 插入用户注册数据 -->
+  <insert id="insertUser" parameterType="user">
+    <selectKey keyProperty="id" order="AFTER" resultType="int">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    INSERT INTO user_info(nickName, email, college, sex, password) 
+      VALUES(#{nickName}, #{email}, #{college}, #{sex}, #{password})
+  </insert>
+  <!-- 默认给用户添加所有栏目功能 -->
+  <insert id="insertFuncs" parameterType="userFunc">
+    INSERT INTO user_func(userId, funcId) VALUES(#{userId}, #{funcId})
+  </insert>
+  
+  <update id="updateUserLogoURL">
+    UPDATE user_info SET logoUrl = #{1} WHERE id = #{0}
+  </update>
+</mapper>

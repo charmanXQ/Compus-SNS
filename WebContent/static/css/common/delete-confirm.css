@@ -1,0 +1,65 @@
+@CHARSET "utf-8";
+
+.alert-close {
+  width: 400px;
+  height: 200px;
+  background-color: #FFFFFF;
+  position: absolute;
+  left: 290px;
+  top: 80px;
+  border: 1px solid #2E4358;
+  border-radius: 5px;
+  z-index: 999;
+  display: none;
+}
+
+.alert-close label {
+  display: none;
+  width: 180px;
+  height: 36px;
+  line-height: 36px;
+  background-color: #1296DB;
+  color: #FFFFFF;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 3px;
+  position: absolute;
+  left: 110px;
+  top: 20px;
+}
+
+.alert-close img {
+  position: absolute;
+  left: 375px;
+  top: 5px;
+}
+.alert-close span {
+  position: absolute;
+  top: 70px;
+  left: 100px;
+  width: 200px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.alert-close div {
+  width: 80px;
+  heigth: 30px;
+  line-height: 30px;
+  background-color: #FE9901;
+  border-radius: 3px;
+  font-family: Arial Regular;
+  color: #FFFFFF;
+  font-size: 14px;
+  position: absolute;
+  top: 130px;
+  text-align: center;
+}
+
+.alert-close .bt-yes {
+  left: 90px;
+}
+
+.alert-close .bt-no {
+  left: 230px;
+}

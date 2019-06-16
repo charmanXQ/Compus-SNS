@@ -1,0 +1,81 @@
+@charset "utf8";
+
+body {
+  background-color: #E1FFFF;
+  background-image: url("../images/bgi_images/bgi_main.png");
+  background-position: -20px 0;
+  background-repeat: no-repeat;
+}
+/* 主干区域 */ 
+.main {
+  width: 1000px;
+  min-height: 550px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+/* 左边导航栏 */ 
+.left-tab {
+  height: auto;
+  width: 180px;
+  float: left;
+}
+
+.left-tab li a {
+  display: block;
+  height: 40px;
+  width: 180px;
+  background-color: #00B7EE;
+  font-size: 15px;
+  line-height: 40px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.left-tab li a:hover {
+  background-color: #00A2D4;
+  box-shadow: 8px 8px 6px 0px rgba(0,0,0,0.8);
+}
+
+.left-tab .active {
+  color: #FFD700;
+}
+/* 右边功能区域 */ 
+.right-content {
+  width: 800px;
+  min-height: 550px;
+  float: right;
+  border-radius: 5px;
+}
+.search-wrapper {
+  position: relative;
+}
+.search-wrapper .userKey {
+  display: block;
+  float: right;
+  height: 40px;
+  width: 280px;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 600;
+  padding-left: 10px;
+  border: 1px solid rgba(0,0,0,0.5);
+  outline: none;
+  margin-bottom: 20px;
+}
+.search-wrapper .searchLogo_body {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  left: 761px;
+  top: 4px;
+}
+
+.content-wrapper {
+  width: 800px;
+  min-height: 500px;
+  position: relative;
+}

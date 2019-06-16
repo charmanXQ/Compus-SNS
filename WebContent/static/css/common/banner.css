@@ -1,0 +1,48 @@
+ @charset "utf8";
+ 
+ /* 横幅区域 */ 
+.banner {
+  width: 1000px;
+  margin: 0 auto;
+  height: 260px;
+  position: relative;
+}
+.banner .userLogo {
+  width: 120px;
+  height: 120px;
+  border: 2px solid #FFFFFF;
+  border-radius: 3px;
+  position: absolute;
+  top:120px;
+  left: 0;
+}
+.banner .nickName {
+  position: absolute;
+  left: 150px;
+  top: 140px;
+  font-size: 35px;
+  color: #008080;
+  text-shadow: 3px 3px 5px #000000;
+}
+.banner ul {
+  position: absolute;
+  left: 150px;
+  top: 200px;
+}
+.banner .barItem {
+  width: 120px;
+  height: 45px;
+  line-height: 45px;
+  float: left;
+  font-size: 20px;
+  font-weight: 500;
+}
+.banner .barItem a {
+  color: #000000;
+}
+.banner .active a {
+  color: #FFD700;
+}
+.banner .barItem a:hover {
+  color: #3CB371;
+}

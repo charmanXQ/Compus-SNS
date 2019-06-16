@@ -1,0 +1,111 @@
+@charset "utf8";
+
+body {
+  background-color: #E1FFFF;
+  background-image: url("../images/bgi_images/bgi_main.png");
+  background-position: -20px 0;
+  background-repeat: no-repeat;
+}
+
+/* 主干区域 */ 
+.main {
+  width: 940px;
+  min-height: 180px;
+  margin: 0 auto;
+  margin-top: 25px;
+  background-color: #FFFFFF;
+  padding: 20px 30px;
+  padding-bottom: 40px;
+  border-radius: 5px;
+  position: relative;
+}
+.main span:first-child {
+  display: block;
+  width: 940px;
+  height: 30px;
+  line-height: 30px;
+  padding-bottom: 10px;
+  font-size: 20px;
+  color: #1E90FF;
+  font-weight: 600;
+  text-align: left;;
+  border-bottom: 2px solid #F5F5F5;
+  margin-bottom: 20px;
+}
+.main .errorMeg {
+  display: none;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  background-color: #ADD8E6;
+  position: absolute;
+  border-radius: 5px;
+  top: 10px;
+  left: 370px;
+  color: #DC143C;
+  font-size: 18px;
+}
+.main .edit {
+  width: 650px;
+  height: 250px;
+  border: 1px solid #ADD8E6;
+  float: left;
+}
+.main .count {
+  width: 250px;
+  height: 250px;
+  float: right;
+}
+.main .edit .content {
+  width: 610px;
+  height: 200px;
+  text-align: left;
+  border-bottom: 1px solid #ADD8E6;
+  line-height: 30px;
+  font-size: 20px;
+  padding: 0 20px;
+  overflow:auto;
+  color: #000000;
+}
+.content:empty:before {
+  content: attr(data-placeholder);
+  color: rgba(0,0,0,0.5);
+}
+.content:focus:before {
+  content: none;
+}
+.main .edit .push {
+  width: 80px;
+  height: 40px;
+  line-height: 40px;
+  background-color: #00BFFF;
+  float: right;
+  border-radius: 5px;
+  margin-top: 5px;
+  margin-right: 10px;
+  font-size: 20px;
+}
+.main .edit .push:hover {
+  background-color: #87CEFA;
+}
+.main .count img {
+  display: block;
+  width: 150px;
+  height: 150px;
+  border-radius: 5px;
+}
+.main .count span {
+  display: block;
+  text-align: left;
+  margin-top: 20px;
+}
+.main .count span:nth-child(2) {
+  font-size: 25px;
+}
+.main .count span:last-child {
+  font-size: 20px;
+}
+.main .count strong {
+  font-size: 30px;
+  color: #1E90FF;
+}

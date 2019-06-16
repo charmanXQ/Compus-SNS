@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace一般配置的时XXMapper.xml的路径 -->
+<mapper namespace="com.xiaoquan.compus.mapper.UserIssueMapper">
+  <select id="countDynamicByUserId" parameterType="int" resultType="int">
+    SELECT
+      COUNT(*) dyCount
+    FROM
+      DYNAMIC dy
+    WHERE
+      dy.issueUserId = #{id} 
+  </select>
+  
+  <insert id="addDynamic" parameterType="dynamic">
+    <selectKey keyProperty="id" order="AFTER" resultType="int">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    INSERT INTO dynamic(txtWords, issueTime, issueUserId)
+      VALUES(#{txtWords}, NOW(), #{issueUser.id})
+  </insert>
+  
+  <insert id="addParComment" parameterType="comment">
+    <selectKey keyProperty="id" order="AFTER" resultType="int">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    INSERT INTO par_comment(txtComment, commentTime, commentUserId, dynamicId)
+      VALUES(#{txtComment}, NOW(), #{commentUser.id}, #{dynamicId})
+  </insert>
+  
+  <insert id="addSubComment" parameterType="comment">
+    <selectKey keyProperty="id" order="AFTER" resultType="int">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    INSERT INTO sub_comment(txtComment, commentTime, commentUserId, parCommentId, replyToUserName)
+      VALUES(#{txtComment}, NOW(), #{commentUser.id}, #{parCommentId}, #{replyToUserName})
+  </insert>
+  
+</mapper>

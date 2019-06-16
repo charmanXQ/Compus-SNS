@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace一般配置的时XXMapper.xml的路径 -->
+<mapper namespace="com.xiaoquan.compus.mapper.UserAlbumMapper">
+  <select id="getPictureCountById" parameterType="int" resultType="int">
+    SELECT COUNT(*) FROM picture WHERE ownerId = #{userId}
+  </select>
+  <!-- 查询用户相册 -->
+  <select id="findPicturesById" resultType="picture">
+    SELECT * FROM picture WHERE ownerId = #{0} LIMIT #{1}, #{2}
+  </select>
+  
+  <delete id="deletePictureById" parameterType="int">
+    DELETE FROM picture WHERE id = #{pictureId}
+  </delete>
+  
+  <insert id="addPicture" parameterType="picture">
+    INSERT INTO picture(name, picURL, ownerId) VALUES(#{name}, #{picURL}, #{ownerId})
+  </insert>
+  
+  <select id="getAllPictureCount" resultType="int">
+    SELECT COUNT(*) FROM picture
+  </select>
+  
+  <!-- 查询所有相册 -->
+  <select id="findAllPictures" resultType="picture">
+    SELECT * FROM picture LIMIT #{0}, #{1}
+  </select>
+</mapper>

@@ -1,0 +1,193 @@
+@charset "utf8";
+
+/* 右边动态部分 */ 
+.right {
+  width: 670px;
+  float: right;
+}
+.right>span {
+  display: block;
+  width: 650px;
+  height: 40px;
+  line-height: 40px;
+  background-color: #F5F5F5;
+  text-align: left;
+  padding-left: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+.right .lineInfo {
+  height: 40px;
+  line-height: 40px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #FFD700;
+}
+.right .item {
+  width: 670px;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  margin-bottom: 20px;
+}
+.right .info, .right .article, .right .comment {
+  width: 640px;
+  margin-left: 15px;
+  position: relative;
+}
+.right .info {
+  height: 60px;
+  margin-top: 20px;
+}
+.right .info .userLogo {
+  float: left;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+.right .info span {
+  position: absolute;
+  font-weight: 500;
+  left: 75px;
+}
+.right .info .info_nickName {
+  font-size: 20px;
+  top: 10px;
+}
+.right .info .info_time {
+  font-size: 15px;
+  color: #A9A9A9;
+  top: 35px;
+}
+
+.right .info .delete_dynamic {
+  display: none;
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  left: 610px;
+  background-image: url("../../images/bgi_images/delete_dynamic.png");
+}
+
+.right .info:hover .delete_dynamic {
+  display: block;
+}
+
+.right .info .delete_dynamic:hover {
+  background-image: url("../../images/bgi_images/delete_dynamic2.png");
+}
+
+.right .article {
+  border-bottom: 1px solid #808080;
+  text-align: left;
+  font-size: 18px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 20px;
+  word-wrap: break-word;
+  word-break: break-all;
+  overflow: hidden;
+}
+/* 评论区 */ 
+.right .comment {
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+.comment .par_comments {
+  width: 640px;
+  margin-bottom: 10px;
+}
+.comment .par_comments .txt_comment {
+  width: 640px;
+}
+
+.comment .par_comments .sub_comments {
+  width: 580px;
+  margin-left: 60px;
+  margin-bottom: 5px;
+}
+.txt_comment .userLogo, .sub_comments .userLogo {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  float: left;
+  border: 1px solid #000000;
+  margin-right: 5px;
+}
+.txt_comment .userInfo, .sub_comments .userInfo {
+  float: left;
+  text-align: left;
+  padding-top: 5px;
+}
+.txt_comment .userInfo {
+  width: 580px;
+}
+.sub_comments .userInfo {
+  width: 520px;
+}
+.txt_comment .info_nickName, .sub_comments .info_nickName {
+  font-size: 15px; 
+  color: #295C9D;
+}
+.txt_comment .words, .sub_comments .words, 
+.txt_comment .info_nickName font, .sub_comments .info_nickName font {
+  color: #000000;
+}
+.txt_comment .info_time, .sub_comments .info_time {
+  height: 22px;
+  line-height: 22px;
+  font-size: 13px;
+  text-align: left;
+  position: relative;
+}
+.txt_comment .info_time a, .sub_comments .info_time a {
+  display: none;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 3px;
+  left: 160px;
+  background-image: url("../../images/bgi_images/comment_logo.png");
+}
+.txt_comment .info_time a:hover, .sub_comments .info_time a:hover {
+  background-image: url("../../images/bgi_images/comment2_logo.png");
+}
+.txt_comment .userInfo:hover .info_time a, .sub_comments .userInfo:hover .info_time a {
+  display: inline-block;
+}
+.right .s_comments {
+  margin-top: 10px;
+}
+.right .s_comments input {
+  display: inline-block;
+  float: left;
+  width: 520px;
+  height: 40px;
+  padding-left: 20px;
+  border-radius: 5px;
+  font-size: 15px;
+  background: none;
+  border: none;
+  outline: none;
+  border: 1px solid #000000;
+}
+.right .s_comments input:hover {
+  border: 1px solid #1296DB;
+}
+.right .s_comments a {
+  display: inline-block;
+  float: right;
+  width: 80px;
+  height: 40px;
+  line-height: 40px;
+  background-color: #1296DB;
+  border-radius: 5px;
+  font-size: 20px;
+  color: #FFFFFF;
+}
+.right .s_comments a:hover {
+  background-color: #1276DB;
+}
